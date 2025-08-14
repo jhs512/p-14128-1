@@ -13,7 +13,7 @@ import java.util.*
 
 @Entity
 class Post(
-    @field:ManyToOne var author: Member,
+    @field:ManyToOne val author: Member,
     var title: String,
     var content: String
 ) : BaseEntity() {
