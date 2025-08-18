@@ -3,7 +3,7 @@ package com.back.standard.util
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.security.Keys
 import tools.jackson.databind.ObjectMapper
-import java.security.Key
+
 import java.util.*
 
 object Ut {
@@ -13,7 +13,7 @@ object Ut {
             val issuedAt = Date()
             val expiration = Date(issuedAt.time + 1000L * expireSeconds)
 
-            val secretKey: Key = Keys.hmacShaKeyFor(secret.toByteArray())
+            val secretKey = Keys.hmacShaKeyFor(secret.toByteArray())
 
             val jwt = Jwts.builder()
                 .claims(body)

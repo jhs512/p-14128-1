@@ -39,7 +39,7 @@ class Post(
     fun findCommentById(id: Int): Optional<PostComment> {
         return comments
             .stream()
-            .filter { comment: PostComment -> comment.id == id }
+            .filter { comment -> comment.id == id }
             .findFirst()
     }
 
