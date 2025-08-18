@@ -3,7 +3,6 @@ package com.back.global.initData
 import com.back.domain.member.member.service.MemberService
 import com.back.domain.post.post.service.PostService
 import com.back.global.app.CustomConfigProperties
-import com.back.global.app.CustomConfigProperties.NotProdMember
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
@@ -51,7 +50,7 @@ class NotProdInitData(
         memberUser3.modifyApiKey(memberUser3.username)
 
         // 코틀린 람다 스타일로 변경
-        customConfigProperties.notProdMembers.forEach { notProdMember: NotProdMember ->
+        customConfigProperties.notProdMembers.forEach { notProdMember ->
             val socialMember = memberService.join(
                 notProdMember.username,
                 null,
