@@ -8,7 +8,6 @@ import java.util.*
 
 object Ut {
     object jwt {
-        @JvmStatic
         fun toString(secret: String, expireSeconds: Int, body: Map<String, Any>): String {
             val issuedAt = Date()
             val expiration = Date(issuedAt.time + 1000L * expireSeconds)
@@ -25,7 +24,6 @@ object Ut {
             return jwt
         }
 
-        @JvmStatic
         fun isValid(secret: String, jwtStr: String): Boolean {
             return try {
                 val secretKey = Keys.hmacShaKeyFor(secret.toByteArray())
@@ -42,7 +40,6 @@ object Ut {
             }
         }
 
-        @JvmStatic
         fun payload(secret: String, jwtStr: String): Map<String, Any>? {
             return try {
                 val secretKey = Keys.hmacShaKeyFor(secret.toByteArray())
