@@ -62,10 +62,7 @@ class Member(
         }
 
     val authorities: Collection<GrantedAuthority>
-        get() = authoritiesAsStringList
-            .stream()
-            .map { SimpleGrantedAuthority(it) }
-            .toList()
+        get() = authoritiesAsStringList.map { SimpleGrantedAuthority(it) }
 
     fun modify(nickname: String, profileImgUrl: String?) {
         this.nickname = nickname
