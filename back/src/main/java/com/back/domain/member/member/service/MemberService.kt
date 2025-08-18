@@ -34,7 +34,7 @@ class MemberService(
 
     fun findByUsername(username: String): Member? = memberRepository.findByUsername(username)
 
-    fun findByApiKey(apiKey: String): Optional<Member> = memberRepository.findByApiKey(apiKey)
+    fun findByApiKey(apiKey: String): Member? = memberRepository.findByApiKey(apiKey)
 
     fun genAccessToken(member: Member): String = authTokenService.genAccessToken(member)
 
