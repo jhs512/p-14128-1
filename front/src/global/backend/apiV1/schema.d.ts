@@ -311,9 +311,9 @@ export interface components {
             createDate: string;
             /** Format: date-time */
             modifyDate: string;
+            username: string;
             name: string;
             profileImageUrl: string;
-            username: string;
             isAdmin: boolean;
         };
         AdmPostCountResBody: {
