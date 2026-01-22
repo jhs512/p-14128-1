@@ -5,7 +5,6 @@ import com.back.domain.post.post.entity.Post
 import com.back.domain.post.post.repository.PostRepository
 import com.back.domain.post.postComment.entity.PostComment
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class PostService(
@@ -21,9 +20,7 @@ class PostService(
         return postRepository.save(post)
     }
 
-    fun findById(id: Int): Optional<Post> {
-        return postRepository.findById(id)
-    }
+    fun findById(id: Int): Post? = postRepository.findById(id).orElse(null)
 
     fun findAll(): List<Post> {
         return postRepository.findAll()
