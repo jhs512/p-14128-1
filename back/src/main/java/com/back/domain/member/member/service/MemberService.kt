@@ -6,7 +6,6 @@ import com.back.global.exception.ServiceException
 import com.back.global.rsData.RsData
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class MemberService(
@@ -40,7 +39,7 @@ class MemberService(
 
     fun payload(accessToken: String): Map<String, Any>? = authTokenService.payload(accessToken)
 
-    fun findById(id: Int): Optional<Member> = memberRepository.findById(id)
+    fun findById(id: Int): Member? = memberRepository.findById(id).orElse(null)
 
     fun findAll(): List<Member> = memberRepository.findAll()
 
