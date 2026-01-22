@@ -50,7 +50,7 @@ public class ApiV1PostCommentControllerTest {
                 .andDo(print());
 
         Post post = postService.findById(postId);
-        PostComment postComment = post.findCommentById(id).get();
+        PostComment postComment = post.findCommentById(id);
 
         resultActions
                 .andExpect(handler().handlerType(ApiV1PostCommentController.class))
